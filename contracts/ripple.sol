@@ -42,7 +42,7 @@ contract Crowdfunding {
 
     function deposit(uint _campaignID, uint _investorId, uint _amount) public {
         require(_campaignID < campaignCount, "Invalid campaign ID");
-        require(_amount > 0, "Must deposit a positive amount");
+        require(_amount > 100, "Must deposit a amount greataer then 100");
 
         Campaign storage campaign = campaigns[_campaignID];
 
