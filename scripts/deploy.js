@@ -12,16 +12,15 @@ async function main() {
 
   const lockedAmount = hre.ethers.parseEther("0.001");
 
-  const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
+  const CrowdfundingFactory = await hre.ethers.getContractFactory("Crowdfunding");
+  const ripple = await CrowdfundingFactory.deploy();  // Assuming no arguments are required
 
-  await lock.waitForDeployment();
+  await ripple.waitForDeployment();
 
   console.log(
-    `Lock with ${ethers.formatEther(
+    `Ripple with ${ethers.formatEther(
       lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
+      )}ETH and unlock timestamp ${unlockTime} deployed to ${ripple.target}`
   );
 }
 
