@@ -4,7 +4,9 @@ This is a simple Crowdfunding contract developed in Solidity. It allows users to
 
 ## Functions
 
-### `createCampaign(string memory _businessName, uint _goal, uint _campaignDuration, uint _waitingPeriodDuration, uint _ROI) public returns (uint campaignID)`
+### Create Campaign
+
+`createCampaign(string memory _businessName, uint _goal, uint _campaignDuration, uint _waitingPeriodDuration, uint _ROI) public returns (uint campaignID)`
 
 This function is used to create a new crowdfunding campaign. It takes the following parameters:
 
@@ -16,7 +18,9 @@ This function is used to create a new crowdfunding campaign. It takes the follow
 
 The function returns the `campaignID` which is a unique identifier for the campaign.
 
-### `deposit(uint _campaignID, uint _investorId, uint _amount) public`
+
+### Deposit
+`deposit(uint _campaignID, uint _investorId, uint _amount) public`
 
 This function allows an investor to deposit funds into a campaign. It takes the following parameters:
 
@@ -26,7 +30,8 @@ This function allows an investor to deposit funds into a campaign. It takes the 
 
 This function also checks that the campaign ID is valid and the amount being deposited is greater than 100.
 
-### `withdraw(uint _campaignID, uint _investorId) public`
+### Withdraw
+`withdraw(uint _campaignID, uint _investorId) public`
 
 This function allows an investor to withdraw funds from a campaign after the waiting period has ended. It takes the following parameters:
 
@@ -35,7 +40,8 @@ This function allows an investor to withdraw funds from a campaign after the wai
 
 If the campaign goal has been reached, the investor will receive their invested amount plus the ROI. If the campaign goal has not been reached, the investor will only receive their invested amount.
 
-### `getCampaignInfo(uint _campaignID) public view returns (string memory businessName, uint goal, uint endTime, uint waitingPeriodEnd, uint ROI, uint fundsRaised)`
+### Get Campaign
+`getCampaignInfo(uint _campaignID) public view returns (string memory businessName, uint goal, uint endTime, uint waitingPeriodEnd, uint ROI, uint fundsRaised)`
 
 This function returns information about a specific campaign. It takes the following parameter:
 
