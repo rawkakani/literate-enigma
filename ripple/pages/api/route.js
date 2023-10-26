@@ -1,5 +1,5 @@
 import contract  from './contract';
-import {provider, ethersprovider}  from '../../utils/ethersProvider';
+import provider from '../../utils/ethersProvider';
 
 
 export default async function handler(req, res) {
@@ -13,9 +13,12 @@ export default async function handler(req, res) {
                 _ROI
             } = req.body;
 
-            const signer = await ethersprovider.getSigner();
-            const tx = await contract.connect(signer).createCampaign(_businessName, _goal, _campaignDuration, _waitingPeriodDuration, _ROI);
+            const signer = provider.signer;
+            const tx = await contract
+                .connect(provider)
+                .createCampaign(_businessName, _goal, _campaignDuration, _waitingPeriodDuration, _ROI);
             await tx.wait();
+
             res.status(200).json({message: 'Compaign Created Successful'});
         } catch (error) {
             console.error('Error creating campaign:', error);
