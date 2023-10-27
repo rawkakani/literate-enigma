@@ -14,7 +14,7 @@ export default function Home() {
             method: "POST",
             body: JSON.stringify({
                 "_businessName": document.getElementById('name').value,
-                "__goal": document.getElementById('goal').value,
+                "_goal": document.getElementById('goal').value,
                 "_campaignDuration": 10
             })
         }).then(res =>  {
