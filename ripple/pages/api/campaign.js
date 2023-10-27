@@ -13,7 +13,6 @@ export default async function handler(req, res) {
                 _ROI
             } = req.body;
 
-            const signer = provider.signer;
             const tx = await contract
                 .connect(provider)
                 .createCampaign(_businessName, _goal, _campaignDuration, _waitingPeriodDuration, _ROI);
