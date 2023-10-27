@@ -2,8 +2,8 @@
 import {useEffect} from 'react'
 export default function Home({params}) {
     useEffect(() => {
-        console.log(params.id)
 
+        localStorage.isWithdrawn = true;
     }, []);
 
     return (

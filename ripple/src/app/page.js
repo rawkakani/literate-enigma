@@ -1,8 +1,26 @@
 'use client';
 import {useEffect,useState} from 'react'
+
+const Transaction = () => {
+  return (
+    <div className="flex flex-col p-2">
+      <div className="flex rounded bg-gray-800 w-full p-4 items-center">
+        Received Money From Rawk
+
+        <span className="text-xs flex flex-grow justify-end">
+          <div className="p-2 bg-blue-800 rounded">
+            In Memory Of Koffi
+          </div>
+
+        </span>
+      </div>
+    </div>
+  )
+}
 export default function Home() {
   const [accountNumber, setAccountNumber] = useState();
   const [wallet, setWallet] = useState(0);
+  const [isWithdrawn, setWithdrawn] = useState(false)
 
   useEffect( () => {
     if(!localStorage.id){
@@ -11,9 +29,12 @@ export default function Home() {
 
     if(localStorage.walletId){
       setAccountNumber(localStorage.walletId)
-      getAccountInfo()
+      if(!localStorage.isWithdrawn){
+        getAccountInfo()
+      }else{
+        setWithdrawn(true)
+      }
     }
-
     }, []);
 
   const getAccountInfo = async () => {
@@ -46,18 +67,16 @@ export default function Home() {
           <div className="text-xl">GHC <span>{wallet}</span></div>
         </div>
 
-        <div className="flex flex-col p-2">
-          <div className="flex rounded bg-gray-800 w-full p-4 items-center">
-            Received Money From Rawk
 
-            <span className="text-xs flex flex-grow justify-end">
-              <div className="p-2 bg-blue-800 rounded">
-                In Memory Of Koffi
-              </div>
+        {!isWithdrawn ?  <Transaction/> : <>
+        <div className="w-full flex items-center justify-center flex-grow text-center">
+          <p className="w-64">
+            Since your last withdrawal you have not created a new event
+          </p>
 
-            </span>
-          </div>
         </div>
+        </>}
+
 
         <div className="w-full absolute flex p-4 bottom-0 justify-end">
           <div className="w-1/2 flex">
