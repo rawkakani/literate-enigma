@@ -2,7 +2,26 @@
 import {useEffect} from 'react'
 export default function Home() {
     useEffect(() => {
-        console.log(localStorage.id)
+
+
+        const shareData = {
+            title: "Togeada",
+            text: "Crowdfunding for freinds and families",
+            url: "https://literate-enigma.vercel.app/view",
+        };
+
+        const btn = document.getElementById("share");
+
+        // Share must be triggered by "user activation"
+        btn.addEventListener("click", async () => {
+            try {
+                await navigator.share(shareData);
+                alert("Succefully Shared Togeada")
+            } catch (err) {
+                alert("Succefully Copied Togeada Donation Link")
+                console.log(err.message,"error message")
+            }
+        });
 
     }, []);
 
@@ -26,7 +45,7 @@ export default function Home() {
             
 
             <div className="flex flex-col space-y-2 items-center justify-center">
-                <a href="" className="p-2 rounded bg-green-400 text-black w-64 text-center">Share With Freind</a>
+                <a id={"share"} href="#" className="p-2 rounded bg-green-400 text-black w-64 text-center">Share With Friends</a>
                 <a href="/donate" className="p-2 rounded bg-blue-400 text-black w-64 text-center">Donate</a>
             </div>
            
