@@ -5,24 +5,25 @@ export default async (req, res) => {
     if (req.method === 'POST') {
         try {
             const {
-                _campaignID,
-                _investorId,
-                _amount
+                campaignID,
+                investorId,
+                amount
             } = req.body;
 
+            console.log(req.body)
             // check if amount is greater than 100
-            if ( _amount <= 100 ) {
+            if ( amount <= 100 ) {
                 return res.status(400).json({ error: 'Amount must be greater than 100'});
             }
 
             const campaignCount = await contract.campaignCount(); 
 
             // check if campaignID is valid
-            if (_campaignID >= campaignCount) {
+            if (campaignID >= campaignCount) {
                 return res.status(400).json({error: 'Invalid campaign ID'});
             }
             
-            const campaign = await contract.campaigns[_campaignID];
+//            const campaign = await contract.campaigns[campaignID];
 
             // if (!campaign || campaign.businessName === '') {
             //     return res.status(400).json({ error: 'Campaign does not exist' });
@@ -30,7 +31,7 @@ export default async (req, res) => {
 
             const tx = await contract
                 .connect(provider)
-                .deposit(_campaignID, _investorId, _amount);
+                .deposit(campaignID, investorId, amount);
             await tx.wait();
 
             res.status(200).json({ message: 'Deposit successful' });

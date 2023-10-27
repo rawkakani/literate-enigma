@@ -2,19 +2,26 @@
 import {useEffect,useState} from 'react'
 export default function Home() {
   const [accountNumber, setAccountNumber] = useState();
+  const [wallet, setWallet] = useState(0);
 
-  useEffect(() => {
+  useEffect( () => {
     if(!localStorage.id){
       localStorage.id = Date.now()
     }
 
     if(localStorage.walletId){
       setAccountNumber(localStorage.walletId)
+      getAccountInfo()
     }
 
     }, []);
 
+  const getAccountInfo = async () => {
+    const _accountInfo = await fetch('/api/getCampaignInfo/?_campaignID=2')
+    const accountInfo = await _accountInfo.json()
 
+    setWallet(accountInfo.fundsRaised)
+  }
   const updateWallet = (e) => {
     e.preventDefault()
     const walletId = document.getElementById('accountNumber').value
@@ -36,7 +43,7 @@ export default function Home() {
       <div className="w-full h-full flex flex-col p-2">
 
         <div className="flex justify-end p-2">
-          <div className="text-xl">GHC 0.00</div>
+          <div className="text-xl">GHC <span>{wallet}</span></div>
         </div>
 
         <div className="flex flex-col p-2">

@@ -9,16 +9,15 @@ export default async function handler(req, res) {
                 _businessName, 
                 _goal,
                 _campaignDuration,
-                _waitingPeriodDuration,
-                _ROI
             } = req.body;
 
             const tx = await contract
                 .connect(provider)
-                .createCampaign(_businessName, _goal, _campaignDuration, _waitingPeriodDuration, _ROI);
-            await tx.wait();
+                .createCampaign(_businessName, _goal, _campaignDuration);
 
+            
             res.status(200).json({message: 'Compaign Created Successful'});
+
         } catch (error) {
             console.error('Error creating campaign:', error);
             res.status(500).json({ error: 'An error occurred while interacting with the contract.' });

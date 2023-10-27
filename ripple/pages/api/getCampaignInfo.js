@@ -8,6 +8,7 @@ export default async (req, res) => {
 
             const campaignCount = await contract.campaignCount();
 
+            console.log(campaignCount)
             if (_campaignID >= campaignCount) {
                 return res.status(400).json({ error: 'Invalid campaign ID' });
             }
@@ -17,20 +18,16 @@ export default async (req, res) => {
                 businessName,
                 goal,
                 endTime,
-                waitingPeriodEnd,
-                ROI,
                 fundsRaised
             ] = campaignInfo;
-            console.log('campaign info: ', campaignInfo);
+            console.log('campaign info: ', fundsRaised);
 
             
             res.status(200).json({
                 businessName,
-                goal: goal.toNumber,
-                endTime: endTime.toNumber,
-                waitingPeriodEnd: waitingPeriodEnd.toNumber,
-                ROI: ROI.toNumber,
-                fundsRaised: fundsRaised.toNumber,
+                goal: Number(goal),
+                endTime: Number(endTime),
+                fundsRaised: Number(fundsRaised),
             });
             // console.log(res);
 
