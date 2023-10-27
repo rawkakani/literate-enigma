@@ -69,18 +69,11 @@ export default function Home() {
       <div className="w-full h-full flex flex-col p-2">
 
         <div className="flex justify-end p-2">
-          <div className="text-xl">GHC <span>{wallet}</span></div>
+          <div className="text-xl">Lifetime Earning GHC <span>{wallet}</span></div>
         </div>
 
 
-        {!isWithdrawn ?  <Transaction/> : <>
-        <div className="w-full flex items-center justify-center flex-grow text-center">
-          <p className="w-64">
-            Since your last withdrawal you have not created a new event
-          </p>
-
-        </div>
-        </>}
+        <Transaction/>
 
 
         <div className="w-full absolute flex p-4 bottom-0 justify-end">
