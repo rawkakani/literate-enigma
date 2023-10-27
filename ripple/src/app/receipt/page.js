@@ -1,17 +1,19 @@
 'use client';
 import {useEffect} from 'react'
-export default function Home() {
+export default function Home({params}) {
     useEffect(() => {
-        console.log(localStorage.id)
+        console.log(params.id)
 
     }, []);
 
     return (
-        <div className="w-screen h-screen flex justify-center items-center flex flex-col">
+        <div className="w-screen h-full justify-center items-center flex flex-col">
             
-            <input type="text" placeholder={"Amount to Donate"}/>
-            <button className={"p-2"}>Donate Now</button>
-
+            <div className="flex p-2 flex-col items-center">
+                <p>
+                    Your donation has been received
+                </p>
+            </div>
         </div>
         )
 

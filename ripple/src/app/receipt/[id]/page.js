@@ -7,8 +7,8 @@ export default function Home({params}) {
     }, []);
 
     return (
-        <div className="w-screen h-screen justify-center items-center flex flex-col">
-            <h1>Who has donated</h1>
+        <div className="w-screen h-full justify-center items-center flex flex-col">
+            
             
         </div>
         )
