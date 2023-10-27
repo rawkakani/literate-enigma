@@ -18,5 +18,3 @@ const provider = new ethers.JsonRpcProvider(networkURL);
 const connectedWallet = wallet.connect(provider);
 
 export default connectedWallet;
-
-// export default provider;
