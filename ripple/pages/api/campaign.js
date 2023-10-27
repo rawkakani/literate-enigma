@@ -9,8 +9,9 @@ export default async function handler(req, res) {
                 _businessName, 
                 _goal,
                 _campaignDuration,
-            } = req.body;
+            } = JSON.parse(req.body);
 
+            console.log(_businessName, _goal, _campaignDuration)
             const tx = await contract
                 .connect(provider)
                 .createCampaign(_businessName, _goal, _campaignDuration);
