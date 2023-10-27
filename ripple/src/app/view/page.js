@@ -47,6 +47,7 @@ export default function Home() {
             <div className="flex flex-col space-y-2 items-center justify-center">
                 <a id={"share"} href="#" className="p-2 rounded bg-green-400 text-black w-64 text-center">Share With Friends</a>
                 <a href="/donate" className="p-2 rounded bg-blue-400 text-black w-64 text-center">Donate</a>
+                <a href="/pledge" className="p-2 rounded bg-blue-400 text-black w-64 text-center">Pledge Service</a>
             </div>
            
         </div>
