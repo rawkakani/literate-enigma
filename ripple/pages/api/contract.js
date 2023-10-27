@@ -1,4 +1,4 @@
-import Crowdfunding from '../../../artifacts/contracts/ripple.sol/Crowdfunding.json';
+import Crowdfunding from '../../utils/contracts/ripple.sol/Crowdfunding.json';
 import provider from '../../utils/ethersProvider';
 const ethers = require("ethers");
 // require('dotenv').config();
