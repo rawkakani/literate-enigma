@@ -8,9 +8,8 @@ export default async (req, res) => {
                 campaignID,
                 investorId,
                 amount
-            } = req.body;
+            } = JSON.parse(req.body);
 
-            console.log(req.body)
             // check if amount is greater than 100
             if ( amount <= 100 ) {
                 return res.status(400).json({ error: 'Amount must be greater than 100'});

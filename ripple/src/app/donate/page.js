@@ -7,17 +7,18 @@ export default function Home({params}) {
     }, []);
 
 
-    const deposit = (e) => {
+    const deposit = async (e) => {
         e.preventDefault()
 
         const amount = document.getElementById('amount').value
 
-        fetch('/api/deposit',{
+        document.getElementById('loading').classList.remove('hidden')
+        await fetch('/api/deposit',{
             method: "POST",
             body: JSON.stringify({
                 "campaignID": 2,
-                "investorId": 12345678,
-                "amount": 150
+                "investorId": parseInt(localStorage.walletId),
+                "amount": parseInt(document.getElementById('amount').value)
             })
         }).then(res => {
             console.log(res)
@@ -48,8 +49,11 @@ export default function Home({params}) {
                     <p className="text-lg">towards the fund</p>
                 </div>
 
-                <div className="flex p-2 text-xl px-4">
-                    <a href="#" onClick={(e) => deposit(e) } className="p-2 rounded bg-green-400 w-full">Pay Now</a>
+                <div className="flex p-2 text-xl px-4 flex-col">
+                    <a href="#" onClick={(e) => deposit(e) }
+                        className="p-2 rounded bg-green-400 w-full text-black text-center">Pay Now</a>
+
+                    <p id="loading" className="text-sm text-center p-2 animate-pulse hidden">processing payment</p>
                 </div>
             </div>
 
