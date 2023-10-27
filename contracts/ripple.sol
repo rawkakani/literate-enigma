@@ -18,8 +18,8 @@ contract Crowdfunding {
 
     function createCampaign(
         string memory _businessName, 
-        uint _goal, 
-        uint _campaignDuration, 
+        uint _goal,
+        uint _campaignDuration,
         uint _waitingPeriodDuration, 
         uint _ROI
     ) 
