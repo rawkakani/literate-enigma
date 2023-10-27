@@ -84,9 +84,9 @@ export default function Home() {
 
 
         <div className="w-full absolute flex p-4 bottom-0 justify-end">
-          <div className="w-1/2 flex">
-            <a href="/withdraw" className="p-2 bg-green-600 rounded">Withdraw</a>
-          </div>
+          {/*<div className="w-1/2 flex">*/}
+          {/*  <a href="/withdraw" className="p-2 bg-green-600 rounded">Withdraw</a>*/}
+          {/*</div>*/}
 
           <div className="w-1/2 flex justify-end">
             <a href="/create" className="p-2 bg-green-600 rounded">Create Event</a>
