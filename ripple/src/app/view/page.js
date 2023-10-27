@@ -12,7 +12,7 @@ export default function Home() {
             <h1 className="text-4xl font-bold p-2">In honour of Kofi</h1>
             <p className="text-sm max-w-sm p-2">
                 Join us as we come together to celebrate the remarkable life of Kofi.
-                It's a time for us to reminisce about the joy,
+                It is a time for us to reminisce about the joy,
                 love, and warmth that he brought into our lives.
                 Through tears and laughter,
                 we will recount the memories that encapsulate the incredible person that he was.
